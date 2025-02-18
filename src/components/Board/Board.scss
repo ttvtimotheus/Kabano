@@ -1,0 +1,65 @@
+.board {
+  height: 100%;
+  padding: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 1;
+
+  .board-content {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    padding-bottom: 8px;
+  }
+
+  .add-column-button {
+    flex-shrink: 0;
+    width: 272px;
+    margin: 0 4px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.24);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: fit-content;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Scrollbar styles
+  &::-webkit-scrollbar {
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    margin: 0 16px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+      background-clip: padding-box;
+    }
+  }
+}

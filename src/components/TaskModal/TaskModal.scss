@@ -1,0 +1,162 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: var(--background);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    margin: -8px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--button-hover);
+      color: var(--text-primary);
+    }
+  }
+}
+
+form {
+  padding: 24px;
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--background);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+      }
+
+      &::placeholder {
+        color: var(--text-secondary);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+
+  .button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.primary {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
+      }
+    }
+
+    &.secondary {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+
+      &:hover {
+        background: var(--button-hover);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

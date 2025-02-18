@@ -1,0 +1,92 @@
+.task-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: all 0.1s ease;
+
+  &:hover {
+    background: #f8f9fa;
+    box-shadow: var(--shadow-md);
+  }
+
+  &.dragging {
+    transform: rotate(2deg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-content {
+    padding: 8px;
+
+    .labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+
+      .label {
+        width: 40px;
+        height: 8px;
+        border-radius: 4px;
+
+        &.green { background: #61bd4f; }
+        &.yellow { background: #f2d600; }
+        &.orange { background: #ff9f1a; }
+        &.red { background: #eb5a46; }
+        &.purple { background: #c377e0; }
+        &.blue { background: #0079bf; }
+      }
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin: 0 0 4px 0;
+      line-height: 20px;
+      word-wrap: break-word;
+    }
+
+    .card-metadata {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+
+      .metadata-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        svg {
+          width: 14px;
+          height: 14px;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+  }
+
+  &:focus-visible::after {
+    opacity: 1;
+  }
+}
